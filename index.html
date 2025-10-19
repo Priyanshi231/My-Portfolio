@@ -13,23 +13,35 @@
     
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="dark-mode">
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
 
     <header class="header">
         <nav class="navbar container">
             <a href="#hero" class="nav-logo">Priyanshi<span>.</span></a>
-            <ul class="nav-menu">
-                <li class="nav-item"><a href="#hero" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
-                <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
-                <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
-                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
+            <div class="nav-controls">
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="#hero" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
+                    <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+                    <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="theme-switcher">
+                    <i class="fas fa-sun"></i>
+                    <label class="switch">
+                        <input type="checkbox" id="theme-toggle">
+                        <span class="slider round"></span>
+                    </label>
+                    <i class="fas fa-moon"></i>
+                </div>
+            </div>
             <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
             </div>
         </nav>
     </header>
@@ -39,11 +51,14 @@
             <div class="hero-container container">
                 <div class="hero-text">
                     <h1 class="animate-hero">Priyanshi Jain</h1>
-                    <p class="animate-hero">Software Developer specializing in Web & AI</p>
+                    <div class="dynamic-text-container animate-hero">
+                        <span id="dynamic-text"></span>
+                    </div>
+                    <p class="hero-intro animate-hero">A creative developer focused on problem solving, building beautiful and intelligent web experiences.</p>
                     <a href="#projects" class="cta-button animate-hero">View My Work</a>
                 </div>
                 <div class="hero-image animate-hero">
-                    <img src="/Priyanshi Jain.jpg" alt="Priyanshi Jain">
+                    <img src="priyanshi-jain.jpg" alt="Priyanshi Jain">
                 </div>
             </div>
         </section>
@@ -54,9 +69,10 @@
                 <div class="about-content">
                     <div class="about-text animate-on-scroll">
                         <h3>Fusing Code with Intelligent Solutions</h3>
-                        <p>I am a final-year Computer Science and IT undergraduate at IPS Academy, Indore (expected graduation: 2027), with a fervent interest in software development and artificial intelligence. My core philosophy is centered on building clean, scalable applications that provide intuitive user experiences and solve real-world problems.</p>
+                        <p>I am a Computer Science and IT undergraduate student at IPS Academy, Indore (expected graduation: 2027), with a fervent interest in software development and artificial intelligence. My core philosophy is centered on building clean, scalable applications that provide intuitive user experiences and solve real-world problems.</p>
                         <p>I am driven by a constant desire to learn and apply new technologies. Outside of my academic and professional pursuits, I enjoy exploring competitive programming, contributing to open-source projects, and delving into the latest advancements in machine learning.</p>
-                        <a href="/Resume 3rd year.pdf" class="cta-button" target="_blank">View Resume</a>
+                        <br>
+                        <a href="resume-3rd-year.pdf" class="cta-button" target="_blank">View Resume</a>
                     </div>
                 </div>
             </div>
@@ -68,16 +84,16 @@
                 <div class="timeline">
                     <div class="timeline-item animate-on-scroll">
                         <div class="timeline-dot"></div>
-                        <div class="timeline-date">Summer 2025</div>
+                        <div class="timeline-date">2025</div>
                         <div class="timeline-content">
-                            <h3>Virtual Internship</h3>
+                            <h3>AI/ML Intern</h3>
                             <p class="timeline-company">Infosys Springboard</p>
                             <p>Developed and implemented the "AI-Powered Emotion-Based Music Recommender System" using Python, TensorFlow, and computer vision techniques during an intensive 8-week virtual internship.</p>
                         </div>
                     </div>
                      <div class="timeline-item animate-on-scroll">
                         <div class="timeline-dot"></div>
-                        <div class="timeline-date">Jun 2024 - Sep 2024</div>
+                        <div class="timeline-date">2024</div>
                         <div class="timeline-content">
                             <h3>Technical Intern</h3>
                             <p class="timeline-company">Roomzy</p>
@@ -118,24 +134,29 @@
         <section id="projects" class="projects section-padding">
             <div class="container">
                 <h2 class="section-title animate-on-scroll">Featured Projects</h2>
+                <div class="project-filter animate-on-scroll">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="react-ai">React & AI</button>
+                    <button class="filter-btn" data-filter="web">Web</button>
+                </div>
                 <div class="projects-grid">
-                    <div class="project-card animate-on-scroll">
+                    <div class="project-card animate-on-scroll" data-category="react-ai">
                         <div class="project-info">
                             <h3>AI Emotion Music Recommender</h3>
                             <p>Engineered an intelligent web application that analyzes a user's facial expression via webcam to detect their emotion and curate a matching music playlist.</p>
-                            <div class="project-tech"><span>React</span><span>Python</span><span>TensorFlow</span><span>OpenCV</span></div>
+                            <div class="project-tech"><span>React</span><span>Python</span><span>TensorFlow</span></div>
                             <div class="project-links"><a href="https://github.com/Priyanshi231/AI-Emotion-Music-Recommender" target="_blank"><i class="fab fa-github"></i> View Code</a></div>
                         </div>
                     </div>
-                    <div class="project-card animate-on-scroll">
+                    <div class="project-card animate-on-scroll" data-category="web">
                         <div class="project-info">
                             <h3>FinTrack - Expense Tracker</h3>
                             <p>Developed a responsive front-end application with a clean UI for logging, tracking, and managing daily expenses, built with a focus on core web technologies.</p>
-                            <div class="project-tech"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+                            <div class="project-tech"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Node.js</span></div>
                             <div class="project-links"><a href="https://github.com/Priyanshi231/Expense_Tracker" target="_blank"><i class="fab fa-github"></i> View Code</a></div>
                         </div>
                     </div>
-                    <div class="project-card animate-on-scroll">
+                    <div class="project-card animate-on-scroll" data-category="web">
                         <div class="project-info">
                             <h3>Professional Portfolio Website</h3>
                             <p>Designed and built a dynamic, single-page personal portfolio featuring advanced CSS animations and interactive JavaScript to showcase my skills and projects.</p>
@@ -155,20 +176,19 @@
                     <div class="contact-details animate-on-scroll">
                         <h3>Contact Information</h3>
                         <p>Fill out the form, or reach out directly through one of the channels below.</p>
-                        <div class="contact-item"><i class="fas fa-envelope"></i><a href="priyanshijain1666@gmail.com">priyanshijain1666@gmail.com</a></div>
+                        <div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:priyanshijain1666@gmail.com">priyanshijain1666@gmail.com</a></div>
                         <div class="contact-item"><i class="fas fa-phone"></i><span>+91 6261620380</span></div>
                         <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Indore, Madhya Pradesh, India</span></div>
                         <div class="contact-socials">
                             <a href="https://github.com/Priyanshi231" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                            <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.linkedin.com/in/priyanshi-jain-4a91b1271/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                         </div>
                     </div>
                     <div class="contact-form-container animate-on-scroll">
                         <form id="contact-form">
-                            <div class="form-group"><i class="fas fa-user"></i><input type="text" name="name" placeholder="Your Name" required></div>
-                            <div class="form-group"><i class="fas fa-at"></i><input type="email" name="email" placeholder="Your Email" required></div>
-                            <div class="form-group"><i class="fas fa-comment-dots"></i><textarea name="message" rows="5" placeholder="Your Message" required></textarea></div>
+                            <div class="form-group"><i class="fas fa-user"></i><input type="text" id="name" name="name" placeholder="Your Name" required><span class="validation-icon"></span></div>
+                            <div class="form-group"><i class="fas fa-at"></i><input type="email" id="email" name="email" placeholder="Your Email" required><span class="validation-icon"></span></div>
+                            <div class="form-group"><i class="fas fa-comment-dots"></i><textarea name="message" id="message" rows="5" placeholder="Your Message" required></textarea><span class="typing-indicator">Typing...</span></div>
                             <button type="submit" class="cta-button">Send Message</button>
                             <p id="form-message"></p>
                         </form>
