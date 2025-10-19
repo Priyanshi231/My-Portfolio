@@ -119,41 +119,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // --- Contact Form Live Validation & Interaction ---
-    const contactForm = document.getElementById('contact-form');
-    const nameInput = document.getElementById('name');
-    const emailInput = document.getElementById('email');
-    const messageInput = document.getElementById('message');
-    const typingIndicator = document.querySelector('.typing-indicator');
-    
-    function validate(field, regex) {
-        const parent = field.parentElement;
-        if (regex.test(field.value)) {
-            parent.classList.add('valid');
-            parent.classList.remove('invalid');
-        } else {
-            parent.classList.add('invalid');
-            parent.classList.remove('valid');
-        }
-    }
-    nameInput.addEventListener('input', () => validate(nameInput, /.+/));
-    emailInput.addEventListener('input', () => validate(emailInput, /^[^\s@]+@[^\s@]+\.[^\s@]+$/));
-
-    messageInput.addEventListener('input', () => {
-        typingIndicator.classList.toggle('visible', messageInput.value.length > 0);
-    });
-    
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const formMessage = document.getElementById('form-message');
-        formMessage.textContent = 'Thank you! Your message has been sent.';
-        formMessage.style.color = 'var(--accent-secondary)';
-        contactForm.reset();
-        document.querySelectorAll('.form-group').forEach(fg => fg.classList.remove('valid', 'invalid'));
-        typingIndicator.classList.remove('visible');
-        setTimeout(() => { formMessage.textContent = ''; }, 5000);
-    });
-
     // --- Dynamic Footer Time ---
     const locationTimeElement = document.getElementById('location-time');
     function updateFooterInfo() {
